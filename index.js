@@ -42,3 +42,46 @@ let simbl = Symbol(mySymbl);
 console.log(simbl.description);
 
 console.log(Object.fromEntries(entries));
+
+//operador de reposo
+
+const obj = {
+  name: 'oscar',
+  age: 32,
+  country: 'MX',
+};
+
+let { country, ...all } = obj;
+console.log(country);
+
+//parametro rest
+function hola(primero, segundo, ...resto) {
+  console.log(primero, segundo); // 1 2
+  console.log(resto); // [3,4,5,6]
+}
+
+hola(1, 2, 3, 4, 5);
+
+//encadenar
+
+const obj2 = {
+  name: 'oscar',
+  age: 32,
+};
+const obj3 = {
+  ...obj2,
+  country: 'MX',
+};
+
+console.log(obj3);
+
+//promise.finaly
+
+const madre = (resolve, reject) => {
+  true ? resolve('Hello world') : reject(new Error(error));
+};
+
+madre()
+  .then((res) => console.log(res))
+  .catch((error) => console.log(error))
+  .finally(() => console.log('Finalizo'));
